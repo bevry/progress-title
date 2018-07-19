@@ -1,0 +1,27 @@
+sudo: false
+language: node_js
+node_js:
+- '4'
+- '6'
+- '8'
+- '10'
+matrix:
+  fast_finish: true
+  allow_failures: []
+cache:
+  directories:
+  - "$HOME/.npm"
+  - "$HOME/.yarn-cache"
+install:
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1ec050bc004d0e2161cb5286c247850d24aecc02/scripts/node-install.bash)"
+before_script:
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1ec050bc004d0e2161cb5286c247850d24aecc02/scripts/node-verify.bash)"
+after_success:
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1ec050bc004d0e2161cb5286c247850d24aecc02/scripts/surge.bash)"
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1ec050bc004d0e2161cb5286c247850d24aecc02/scripts/node-publish.bash)"
+notifications:
+  slack:
+    secure: s/hgISjhyavjll0pc+EL3EqGcUxy9n3g1NBmIAsSI4lSboTLa8NmMyif8XvDbFXKbXdcLQw95p3B8jxYrRE+Fl2uPmfZsK9v00nKG1vcYdJTKg6nKVXd7p3zai/h1DjHda8u/RlhOJBZTMpE2Aea870/iOe1sWeLxJm8KMNkfzDS9RFfHf6xpWOlZ+fo4aq/wguit3UW/qjjS7GV4PCZyeUtqTXot1BMQOs0CQLZKYnRRwr9iWwmlRrWiT9kBBU5JdnZ80mv/sv+6BCvmsMXzOdyIfaCPwgcbYLVxYOLMe6btHNUyIVxeFzn6dhyOapLikfLRrrOFWwG8TiqgQbk58XOxSI+R58hbvoYi44GyE5pwTQD6tPde1upwzdKjw5ZsjLOmYj94jaBxM4342Bs59Kt55EKIY7TnE9Sa4UM3x2htKQI96aFN2kOkW+I2xHpVLPLYhUM29sqAAISeAqqIBud3WmYF68xwpkp7biLWQbLmLv+ISENdg81KrlIpY9ddrodhOHrI3Z7EOj1+5MmIOsziF/QapSwSGrdPlqwU5Lku1yZSAcq7bmpFLiVQTmc9D+PEmiI2KL13n95gaW7a3AN9y8jWZnbiZWlCUW64TirI2YH27I09oBgq3pZV5yQ87pCA2YSfXbJ0xB73z/RQNMVCMgbZHithd3KY2K4g3c=
+  email:
+    recipients:
+      secure: VzGG641vVAfyq/1gzY82fDORkuaVw/2enlP1E/q+SJwASoMJV872/1U1XmbxKp/uezDzrTFliqGw9404UHIRehu1o9Wv56CgYwqNZVI7kTzEjIG9faywH6nejkA695Ndc/sXCpmx2qvEHYN/TcUgv0KVAy6iSCLPR50yOTt9nYwkojjR1vBXTIR3SYBPpSjjuY6gjaHCjiiVIczuYo6AnPLFWkY/lt+f0nrbFBQfIkiGPgJf+6Mkck3ay/5/IcpREJc4IvEucIJww3x2Tywa5xdrcy6s/8o5S/EvRx3boHOZ6L/TUImzENy9+axSH5PsDxCdlASz/gxgGO4Q2PcMPhZRiynbs6NgHuEv3ZaEOwTD+MCI7I4ir2G7VlwzwsjiKcOPkoUKu+/f40QzVqgDkBXYt3D5k+wIaE3EkuONik5SH4ahGBAhG3993mq5VZa9uhPpUbrFjR8V+ITU1/yUxFfYIKU9aBS+sxrtrObBDTEC2KwDTsIUe6cCHRKDTX/a+YDUgNd+UofcWfy4YumTH21C133e/ZxkPElcNHxJYy1cdzZOCeENkBElNfYgKGpfYRzwX3hanaYLvoQv98LiDY5FxlyGEUgegenqVkTCp8JYNKWipyKL/HVwVhwsiWPQ730P5CZIa5lK5e12n0FyNSBKe9Z/F6mSStF8T85lwhI=
