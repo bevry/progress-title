@@ -47,13 +47,14 @@ class Progress {
 			text: null,
 			counts: null
 		}
-		this.config = Object.assign({
+		this.config = {
 			verbose: false,
 			log: false,
 			interval: 1000,
 			open: '\u001b]0;', // ECMAScript equivalent for '\033]0;'
 			close: '\u0007' // ECMAScript equivalent for '\007'
-		}, opts)
+		}
+		this.configure(opts)
 	}
 
 	/**
@@ -102,7 +103,7 @@ class Progress {
 
 	/**
 	 * Generate the title
-	 * @returns {string?}
+	 * @returns {string}
 	 * @private
 	 */
 	_format () {
@@ -111,24 +112,68 @@ class Progress {
 		const { remaining, executing, done, total } = counts
 		if (total) {
 			const completed = Math.round((done / total) * 100) + '%'
-			const status = (text && `${text} ` || '') + (
+			const status = (text != null && `${text} ` || '') + (
 				verbose
 					? `[${remaining} remaining] [${executing} executing] [${done} completed] [${total} total]`
 					: `[${completed}` + (executing && ` — ${executing} running]` || ']')
 			)
 			return status
 		}
-		else if (text) {
-			return text
+		else if (text != null) {
+			return String(text)
 		}
 		else {
-			return null
+			throw new Error('format requires total to be truthy, or text to be present')
 		}
 	}
 
 	/**
-	 * Clear the interval timer, using for pausing title updates
-	 * Has no effect if interval is 0
+	 * Update the existing configuration with the passed configuration.
+	 * Updates the interval timer accordingly.
+	 * @param {Configuration} [opts]
+	 * @returns {this}
+	 * @chainable
+	 * @public
+	 */
+	configure (opts = {}) {
+		Object.assign(this.config, opts)
+		return this.interval(this.config.interval)
+	}
+
+	/**
+	 * Update the interval configuration value.
+	 * Respects the interval timer state.
+	 * If the timer is inactive, it remains inactive.
+	 * If the timer is active, it remains active (however it gets updated for new value).
+	 * @param {number} [interval]
+	 * @returns {this}
+	 * @chainable
+	 * @public
+	 */
+	interval (interval) {
+		if (interval != null) {
+			if (this.timer) {
+				this.pause()
+			}
+			this.config.interval = interval
+			if (this.timer) {
+				this.resume()
+			}
+		}
+		return this
+	}
+
+	/**
+	 * Whether or not interval timer is currently active.
+	 * @type {boolean}
+	 * @public
+	 */
+	get active () {
+		return this.timer == null
+	}
+
+	/**
+	 * Stop the interval timer. Use this for pausing title updates.
 	 * @returns {this}
 	 * @chainable
 	 * @public
@@ -142,8 +187,8 @@ class Progress {
 	}
 
 	/**
-	 * Commence/resume the interval timer
-	 * @param {number} [interval] if you wish to update the interval configuration, provide this
+	 * Restart the interval timer. Use this for resuming title updates.
+	 * @param {number} [interval]
 	 * @returns {this}
 	 * @chainable
 	 * @public
