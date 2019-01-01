@@ -40,7 +40,7 @@ Construct our Progress class
 @public
 */
 class Progress {
-	constructor (opts = {}) {
+	constructor(opts = {}) {
 		this.title = null
 		this.timer = null
 		this.state = {
@@ -64,7 +64,7 @@ class Progress {
 	@static
 	@public
 	*/
-	static create (...args) {
+	static create(...args) {
 		return new this(...args)
 	}
 
@@ -75,7 +75,7 @@ class Progress {
 	 * @chainable
 	 * @private
 	 */
-	_title (title) {
+	_title(title) {
 		if (title == null) {
 			title = this._format()
 		}
@@ -92,11 +92,12 @@ class Progress {
 	 * @chainable
 	 * @private
 	 */
-	_write () {
+	_write() {
 		const title = this.title
-		if (title == null) throw new Error('title was null, this should never happen')
+		if (title == null)
+			throw new Error('title was null, this should never happen')
 		const { open, close, log } = this.config
-		const output = (open + title + close) + (log && title ? `${title}\n` : '')
+		const output = open + title + close + (log && title ? `${title}\n` : '')
 		process.stdout.write(output)
 		return this
 	}
@@ -106,24 +107,25 @@ class Progress {
 	 * @returns {string}
 	 * @private
 	 */
-	_format () {
+	_format() {
 		const { verbose } = this.config
 		const { text, counts } = this.state
 		const { remaining, executing, done, total } = counts
 		if (total) {
 			const completed = Math.round((done / total) * 100) + '%'
-			const status = (text != null && `${text} ` || '') + (
-				verbose
+			const status =
+				((text != null && `${text} `) || '') +
+				(verbose
 					? `[${remaining} remaining] [${executing} executing] [${done} completed] [${total} total]`
-					: `[${completed}` + (executing && ` — ${executing} running]` || ']')
-			)
+					: `[${completed}` +
+					  ((executing && ` — ${executing} running]`) || ']'))
 			return status
-		}
-		else if (text != null) {
+		} else if (text != null) {
 			return String(text)
-		}
-		else {
-			throw new Error('format requires total to be truthy, or text to be present')
+		} else {
+			throw new Error(
+				'format requires total to be truthy, or text to be present'
+			)
 		}
 	}
 
@@ -135,7 +137,7 @@ class Progress {
 	 * @chainable
 	 * @public
 	 */
-	configure (opts = {}) {
+	configure(opts = {}) {
 		Object.assign(this.config, opts)
 		return this.interval(this.config.interval)
 	}
@@ -150,7 +152,7 @@ class Progress {
 	 * @chainable
 	 * @public
 	 */
-	interval (interval) {
+	interval(interval) {
 		if (interval != null) {
 			if (this.timer) {
 				this.pause()
@@ -168,7 +170,7 @@ class Progress {
 	 * @type {boolean}
 	 * @public
 	 */
-	get active () {
+	get active() {
 		return this.timer == null
 	}
 
@@ -178,7 +180,7 @@ class Progress {
 	 * @chainable
 	 * @public
 	 */
-	pause () {
+	pause() {
 		if (this.timer) {
 			clearInterval(this.timer)
 			this.timer = null
@@ -193,7 +195,7 @@ class Progress {
 	 * @chainable
 	 * @public
 	 */
-	resume (interval) {
+	resume(interval) {
 		this.pause()
 		if (interval != null) {
 			this.config.interval = interval
@@ -210,11 +212,19 @@ class Progress {
 	 * @returns {Counts}
 	 * @private
 	 */
-	_counts ({ remaining = 0, executing = 0, running = 0, done = 0, completed = 0, total = 0 } = {}) {
+	_counts({
+		remaining = 0,
+		executing = 0,
+		running = 0,
+		done = 0,
+		completed = 0,
+		total = 0
+	} = {}) {
 		return {
-			remaining, total,
-			executing: (executing || running),
-			done: (done || completed)
+			remaining,
+			total,
+			executing: executing || running,
+			done: done || completed
 		}
 	}
 
@@ -226,7 +236,7 @@ class Progress {
 	 * @chainable
 	 * @public
 	 */
-	update (text = '', counts = {}) {
+	update(text = '', counts = {}) {
 		const { interval } = this.config
 		this.state = { text, counts: this._counts(counts) }
 		if (!interval) this._title()
@@ -239,7 +249,7 @@ class Progress {
 	 * @chainable
 	 * @public
 	 */
-	start () {
+	start() {
 		return this._title('').resume()
 	}
 
@@ -249,7 +259,7 @@ class Progress {
 	 * @chainable
 	 * @public
 	 */
-	stop () {
+	stop() {
 		return this.pause()._title('')
 	}
 }
