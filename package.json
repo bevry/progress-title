@@ -1,6 +1,6 @@
 {
   "name": "progress-title",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Your usual progress bar, but this time it is displayed within the terminal's title, which is much simpler",
   "homepage": "https://github.com/bevry/progress-title",
   "license": "MIT",
