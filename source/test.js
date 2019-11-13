@@ -2,7 +2,7 @@
 
 const { equal, deepEqual } = require('assert-helpers')
 const kava = require('kava')
-const Progress = require('../')
+const Progress = require('./')
 
 kava.suite('progress-title', function(suite, test) {
 	test('instantation with config', function() {
