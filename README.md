@@ -46,9 +46,10 @@ Your usual progress bar, but this time it is displayed within the terminal's tit
 
 <p>This package is published with the following editions:</p>
 
-<ul><li><code>progress-title</code> aliases <code>progress-title/index.js</code> which uses <a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a> to automatically select the correct edition for the consumers environment</li>
-<li><code>progress-title/source/index.js</code> is esnext source code with require for modules</li>
-<li><code>progress-title/edition-node-4/index.js</code> is esnext compiled for node.js 4 with require for modules</li></ul>
+<ul><li><code>progress-title</code> aliases <code>progress-title/source/index.js</code></li>
+<li><code>progress-title/source/index.js</code> is esnext source code with require for modules</li></ul>
+
+<p>Environments older than Node.js v8 may need <a href="https://babeljs.io/docs/usage/polyfill/" title="A polyfill that emulates missing ECMAScript environment features">Babel's Polyfill</a> or something similar.</p>
 
 <h3><a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a></h3>
 
@@ -138,7 +139,8 @@ No sponsors yet! Will you be the first?
 
 These amazing people have contributed code to this project:
 
-<ul><li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/progress-title/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/progress-title">view contributions</a></li></ul>
+<ul><li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/progress-title/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/progress-title">view contributions</a></li>
+<li><a href="http://github.com/apps/dependabot-preview">dependabot-preview[bot]</a> — <a href="https://github.com/bevry/progress-title/commits?author=dependabot-preview[bot]" title="View the GitHub contributions of dependabot-preview[bot] on repository bevry/progress-title">view contributions</a></li></ul>
 
 <a href="https://github.com/bevry/progress-title/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
