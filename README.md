@@ -33,45 +33,11 @@ Your usual progress bar, but this time it is displayed within the terminal's tit
 <!-- /DESCRIPTION -->
 
 
-<!-- INSTALL/ -->
-
-<h2>Install</h2>
-
-<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
-<ul>
-<li>Install: <code>npm install --save progress-title</code></li>
-<li>Require: <code>require('progress-title')</code></li>
-</ul>
-
-<h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
-
-<p>This package is published with the following editions:</p>
-
-<ul><li><code>progress-title</code> aliases <code>progress-title/source/index.js</code></li>
-<li><code>progress-title/source/index.js</code> is esnext source code with require for modules</li></ul>
-
-<p>Environments older than Node.js v8 may need <a href="https://babeljs.io/docs/usage/polyfill/" title="A polyfill that emulates missing ECMAScript environment features">Babel's Polyfill</a> or something similar.</p>
-
-<h3><a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a></h3>
-
-This project provides its type information via inline <a href="http://usejsdoc.org" title="JSDoc is an API documentation generator for JavaScript, similar to Javadoc or phpDocumentor">JSDoc Comments</a>. To make use of this in <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a>, set your <code>maxNodeModuleJsDepth</code> compiler option to `5` or thereabouts. You can accomlish this via your `tsconfig.json` file like so:
-
-``` json
-{
-  "compilerOptions": {
-    "maxNodeModuleJsDepth": 5
-  }
-}
-```
-
-<!-- /INSTALL -->
-
-
 ## Usage
 
-[API Documentation.](http://master.progress-title.bevry.surge.sh/docs/)
+[Complete API Documentation.](http://master.progress-title.bevry.surge.sh/docs/index.html)
 
-``` javascript
+```javascript
 const Progress = require('progress-title')
 
 // Create the progress session, you can pass configuration into the create method
@@ -93,6 +59,38 @@ progress.update('message C', { total: 10, completed: 5, running: 5 })
 // To finish the progress updates
 progress.stop()
 ```
+
+<!-- INSTALL/ -->
+
+<h2>Install</h2>
+
+<a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
+<ul>
+<li>Install: <code>npm install --save progress-title</code></li>
+<li>Import: <code>import * as pkg from ('progress-title')</code></li>
+<li>Require: <code>const pkg = require('progress-title')</code></li>
+</ul>
+
+<h3><a href="https://editions.bevry.me" title="Editions are the best way to produce and consume packages you care about.">Editions</a></h3>
+
+<p>This package is published with the following editions:</p>
+
+<ul><li><code>progress-title</code> aliases <code>progress-title/source/index.js</code></li>
+<li><code>progress-title/source/index.js</code> is <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> source code for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li></ul>
+
+<h3><a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a></h3>
+
+This project provides its type information via inline <a href="http://usejsdoc.org" title="JSDoc is an API documentation generator for JavaScript, similar to Javadoc or phpDocumentor">JSDoc Comments</a>. To make use of this in <a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a>, set your <code>maxNodeModuleJsDepth</code> compiler option to `5` or thereabouts. You can accomlish this via your `tsconfig.json` file like so:
+
+``` json
+{
+  "compilerOptions": {
+    "maxNodeModuleJsDepth": 5
+  }
+}
+```
+
+<!-- /INSTALL -->
 
 
 <!-- HISTORY/ -->
@@ -121,7 +119,7 @@ progress.stop()
 
 These amazing people are maintaining this project:
 
-<ul><li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/progress-title/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/progress-title">view contributions</a></li></ul>
+<ul><li><a href="https://github.com/balupton">Benjamin Lupton</a> — <a href="https://github.com/bevry/progress-title/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/progress-title">view contributions</a></li></ul>
 
 <h3>Sponsors</h3>
 
@@ -141,8 +139,7 @@ No sponsors yet! Will you be the first?
 
 These amazing people have contributed code to this project:
 
-<ul><li><a href="http://balupton.com">Benjamin Lupton</a> — <a href="https://github.com/bevry/progress-title/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/progress-title">view contributions</a></li>
-<li><a href="http://github.com/apps/dependabot-preview">dependabot-preview[bot]</a> — <a href="https://github.com/bevry/progress-title/commits?author=dependabot-preview[bot]" title="View the GitHub contributions of dependabot-preview[bot] on repository bevry/progress-title">view contributions</a></li></ul>
+<ul><li><a href="https://github.com/balupton">Benjamin Lupton</a> — <a href="https://github.com/bevry/progress-title/commits?author=balupton" title="View the GitHub contributions of Benjamin Lupton on repository bevry/progress-title">view contributions</a></li></ul>
 
 <a href="https://github.com/bevry/progress-title/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 

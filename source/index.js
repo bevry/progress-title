@@ -45,14 +45,14 @@ class Progress {
 		this.timer = null
 		this.state = {
 			text: null,
-			counts: null
+			counts: null,
 		}
 		this.config = {
 			verbose: false,
 			log: false,
 			interval: 1000,
 			open: '\u001b]0;', // ECMAScript equivalent for '\033]0;'
-			close: '\u0007' // ECMAScript equivalent for '\007'
+			close: '\u0007', // ECMAScript equivalent for '\007'
 		}
 		this.configure(opts)
 	}
@@ -218,13 +218,13 @@ class Progress {
 		running = 0,
 		done = 0,
 		completed = 0,
-		total = 0
+		total = 0,
 	} = {}) {
 		return {
 			remaining,
 			total,
 			executing: executing || running,
-			done: done || completed
+			done: done || completed,
 		}
 	}
 
