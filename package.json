@@ -1,6 +1,6 @@
 {
   "name": "progress-title",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "description": "Your usual progress bar, but this time it is displayed within the terminal's title, which is much simpler",
   "homepage": "https://github.com/bevry/progress-title",
   "license": "MIT",
@@ -92,22 +92,19 @@
   ],
   "type": "commonjs",
   "main": "source/index.js",
-  "dependencies": {
-    "editions": "3.5.0"
-  },
   "devDependencies": {
-    "@bevry/update-contributors": "1.9.0",
-    "assert-helpers": "6.8.0",
+    "@bevry/update-contributors": "^1.9.0",
+    "assert-helpers": "^6.8.0",
     "eslint": "^7.3.0",
-    "eslint-config-bevry": "3.8.0",
+    "eslint-config-bevry": "^3.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jsdoc": "^3.6.4",
-    "kava": "5.4.0",
+    "kava": "^5.7.0",
     "prettier": "^2.0.5",
-    "projectz": "2.5.0",
+    "projectz": "^2.9.0",
     "surge": "^0.21.3",
-    "valid-directory": "2.2.0"
+    "valid-directory": "^2.5.0"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
