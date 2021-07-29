@@ -35,7 +35,7 @@ Your usual progress bar, but this time it is displayed within the terminal's tit
 
 ## Usage
 
-[Complete API Documentation.](http://master.progress-title.bevry.surge.sh/docs/index.html)
+[Complete API Documentation.](http://master.progress-title.bevry.surge.sh/docs/)
 
 ```javascript
 const Progress = require('progress-title')
