@@ -124,7 +124,7 @@ class Progress {
 			return String(text)
 		} else {
 			throw new Error(
-				'format requires total to be truthy, or text to be present'
+				'format requires total to be truthy, or text to be present',
 			)
 		}
 	}
