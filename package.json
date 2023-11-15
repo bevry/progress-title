@@ -1,6 +1,6 @@
 {
   "name": "progress-title",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Your usual progress bar, but this time it is displayed within the terminal's title, which is much simpler",
   "homepage": "https://github.com/bevry/progress-title",
   "license": "Artistic-2.0",
@@ -108,7 +108,7 @@
   "type": "commonjs",
   "main": "index.cjs",
   "dependencies": {
-    "editions": "^6.11.0"
+    "editions": "^6.13.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
@@ -116,17 +116,17 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/preset-env": "^7.23.3",
     "@bevry/update-contributors": "^1.23.0",
-    "assert-helpers": "^11.2.0",
+    "assert-helpers": "^11.4.0",
     "eslint": "^8.53.0",
     "eslint-config-bevry": "^4.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "jsdoc": "^4.0.2",
-    "kava": "^7.1.0",
+    "kava": "^7.2.0",
     "prettier": "^3.1.0",
-    "projectz": "^2.23.0",
+    "projectz": "^3.0.0",
     "surge": "^0.23.1",
-    "valid-directory": "^4.1.0"
+    "valid-directory": "^4.2.0"
   },
   "scripts": {
     "our:clean": "rm -rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
