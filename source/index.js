@@ -118,7 +118,7 @@ class Progress {
 				(verbose
 					? `[${remaining} remaining] [${executing} executing] [${done} completed] [${total} total]`
 					: `[${completed}` +
-					  ((executing && ` — ${executing} running]`) || ']'))
+						((executing && ` — ${executing} running]`) || ']'))
 			return status
 		} else if (text != null) {
 			return String(text)
